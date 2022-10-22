@@ -6,10 +6,9 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Image from "../resources/cart.jpg";
-import TextField from "@mui/material/TextField";
 import { useNavigate } from "react-router-dom";
 
-function UserProductsCard() {
+function UserProductsCard(props) {
   const navigate = useNavigate();
   const navigateToCart = () => {
     navigate("/user-cart");
@@ -25,10 +24,10 @@ function UserProductsCard() {
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
-            Iphone 14
+            {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Price : 50,000 Rs <br /> Qty Available : 5
+            Price : Rs {props.price} <br /> Qty Available : {props.qty}
           </Typography>
         </CardContent>
         <CardActions className="d-flex justify-content-end">
