@@ -14,18 +14,18 @@ function UserHomePage() {
     },
     {
       name: "iPhone 13",
-      price: 80000,
+      price: 70000,
       qty: 4,
     },
     ,
     {
       name: "iPhone 12",
-      price: 80000,
+      price: 60000,
       qty: 6,
     },
     {
       name: "iPhone 11",
-      price: 80000,
+      price: 50000,
       qty: 10,
     },
   ];

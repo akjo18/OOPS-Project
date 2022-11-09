@@ -2,10 +2,18 @@ import React from "react";
 import LandingPageBar from "../components/LandingPageBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
-import TextField from "@mui/material/TextField";
+// import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
-import Button from "@mui/material/Button";
+// import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import {
+  TextField,
+  Grid,
+  Card,
+  CardContent,
+  Typography,
+  Button,
+} from "@mui/material";
 
 function AdminLogin() {
   const navigate = useNavigate();
@@ -28,30 +36,60 @@ function AdminLogin() {
         alignItems="center"
         justifyContent="center"
       >
-        <Paper elevation={15}>
-          <div className="d-flex justify-content-center mt-3 ">
-            <Stack spacing={4}>
-              <h4>Admin Login</h4>
-              <TextField
-                id="outlined-basic"
-                label="Admin Id"
-                variant="outlined"
-                required
-              />
-              <TextField
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                required
-                autoComplete="current-password"
-              />
+        <div className="d-flex align-items-center justify-content-center">
+          <Grid>
+            <Card style={{ maxWidth: 450, padding: "20px 5px" }}>
+              <CardContent>
+                <Typography gutterBottom variant="h5">
+                  Admin Login
+                </Typography>
 
-              <Button variant="contained" onClick={navigateToAdminHomePage}>
-                Sign In
-              </Button>
-            </Stack>
-          </div>
-        </Paper>
+                <form className="mt-3">
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      <TextField
+                        type="email"
+                        placeholder="Enter email"
+                        label="Email"
+                        variant="outlined"
+                        required
+                      />
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        placeholder="Enter Password"
+                        label="Password"
+                        type="password"
+                        variant="outlined"
+                        autoComplete="current-password"
+                        required
+                      />
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        required
+                        // onClick={navigateToUserHomePage}
+                      >
+                        Sign In
+                      </Button>
+                    </Grid>
+                  </Grid>
+                </form>
+                {/* <Button
+                  variant="text"
+                  className="mt-2"
+                  // onClick={navigateToForgotPassword}
+                >
+                  Forgot Password ?
+                </Button> */}
+              </CardContent>
+            </Card>
+          </Grid>
+        </div>
       </Box>
     </div>
   );
