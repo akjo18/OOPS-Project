@@ -64,6 +64,7 @@ function UserLogin() {
         }}
         alignItems="center"
         justifyContent="center"
+        textAlign="center"
       >
         <div className="d-flex align-items-center justify-content-center">
           <Grid>
@@ -78,8 +79,8 @@ function UserLogin() {
                     <Grid item xs={12}>
                       <TextField
                         type="email"
-                        placeholder="Enter email"
-                        label="Email"
+                        placeholder="Enter Id"
+                        label="User Id"
                         variant="outlined"
                         required
                       />

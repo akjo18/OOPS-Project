@@ -1,11 +1,12 @@
 import React from "react";
 import UserBar from "../components/UserBar";
+import CartCard from "../components/CartCard";
 
-function UserCart() {
+function UserCart(props) {
   return (
     <div>
       <UserBar />
-      <h3>UserCart</h3>
+      <CartCard />
     </div>
   );
 }
