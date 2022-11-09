@@ -6,6 +6,9 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { CardContent, Grid, Card,Typography } from "@mui/material";
+import { width } from "@mui/system";
+import { CenterFocusStrong } from "@mui/icons-material";
 
 function UserRegister() {
   const navigate = useNavigate();
@@ -21,55 +24,102 @@ function UserRegister() {
           flexWrap: "wrap",
           "& > :not(style)": {
             m: 10,
-            width: 450,
+            width: 600,
             height: 550,
           },
         }}
+        textAlign="center"
         alignItems="center"
         justifyContent="center"
       >
-        <Paper elevation={15}>
-          <div className="d-flex justify-content-center mt-3 ">
-            <Stack spacing={3}>
-              <h4>Register New User</h4>
+        
+          <div className="d-flex justify-content-center ">
+            <Grid>
+            <Card style={{ maxWidth: 600, padding: "20px 5px" }}>
+              <CardContent>
+            <Typography gutterBottom variant="h5" mb={2} >
+                  New User Register
+                </Typography>
+              <form className="pt-3">  
+                <Grid container spacing={2}>
+              <Grid container 
+              rowSpacing={2} 
+              columnSpacing={{ xs: 4 }}
+              >
+              
+              <Grid item xs={6}>
               <TextField
+                fullWidth
+                className=""
                 id="outlined-basic"
                 label="Name"
                 variant="outlined"
                 required
               />
+              </Grid>
+              <Grid item xs={6}>
               <TextField
-                id="outlined-basic"
-                label="Email Id"
-                variant="outlined"
-                required
-              />
-              <TextField
+                fullWidth
                 id="outlined-basic"
                 label="User Id"
                 variant="outlined"
                 required
               />
+              
+              </Grid>
+              <Grid item xs={12}>
               <TextField
-                id="outlined-password-input"
-                label="Password"
-                type="password"
+              fullWidth 
+              label="Email Address"
+                id="fullWidth"
+                variant="outlined"
                 required
-                autoComplete="current-password"
               />
+              </Grid>
+              
+              <Grid item xs={6}>
               <TextField
+                fullWidth
                 id="outlined-basic"
                 label="Phone Number"
                 variant="outlined"
                 required
               />
-
+              </Grid>
+              
+              <Grid item xs={6}>
+              <TextField
+                fullWidth
+                id="outlined-multiline-static"
+                label="Address"
+                multiline
+                required
+                rows={4}
+              />
+              </Grid>
+              <Grid item xs={12}>
+              <TextField
+                fullWidth
+                id="fullWidth"
+                label="Password"
+                type="password"
+                required
+                autoComplete="current-password"
+              />
+              </Grid>
+              <Grid item xs={12}
+              >
               <Button variant="contained" onClick={navigateToUserLogin}>
                 Sign Up
               </Button>
-            </Stack>
+              </Grid>
+              </Grid>
+              </Grid>
+              </form>
+            </CardContent>
+            </Card>
+            </Grid>
           </div>
-        </Paper>
       </Box>
     </div>
   );

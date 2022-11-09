@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import {Grid,Card,CardContent,Typography} from "@mui/material"
 
 function ForgotPassword() {
   const navigate = useNavigate();
@@ -25,19 +26,29 @@ function ForgotPassword() {
             height: 350,
           },
         }}
+        textAlign="center"
         alignItems="center"
         justifyContent="center"
       >
-        <Paper elevation={15}>
-          <div className="d-flex justify-content-center mt-3 ">
-            <Stack spacing={4}>
-              <h4>Reset Password</h4>
+          <div className="d-flex justify-content-center ">
+            <Grid>
+            <Card style={{ maxWidth: 600, padding: "20px 5px" }}>
+            <CardContent>
+            <Typography gutterBottom variant="h5" mb={2} >
+                  Reset Password
+                </Typography>
+              <Grid container 
+              rowSpacing={2} 
+              >
+                <Grid item xs={12}>
               <TextField
                 id="outlined-basic"
                 label="User Id"
                 variant="outlined"
                 required
               />
+              </Grid>
+              <Grid item xs={12}>
               <TextField
                 id="outlined-password-input"
                 label="New Password"
@@ -45,13 +56,18 @@ function ForgotPassword() {
                 required
                 autoComplete="current-password"
               />
-
+              </Grid>
+              <Grid item xs={12}>
               <Button variant="contained" onClick={navigateToUserLogin}>
                 Update Password
               </Button>
-            </Stack>
+              </Grid>
+              </Grid>
+              </CardContent>
+              </Card>
+            </Grid>
+            
           </div>
-        </Paper>
       </Box>
     </div>
   );
