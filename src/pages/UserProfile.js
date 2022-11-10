@@ -13,6 +13,10 @@ function UserProfile() {
     navigate("/");
   };
 
+  const navigateToChangePassword = () => {
+    navigate("/change-password");
+  };
+
   return (
     <div>
       <UserBar />
@@ -95,14 +99,19 @@ function UserProfile() {
                   readonly
                 />
               </div>
-              <div class="p-2">
+              {/* <div class="p-2">
                 <Button variant="contained">TopUp - 500</Button>
-              </div>
+              </div> */}
             </div>
             <div class="d-flex flex-row-reverse">
               <div class="p-2">
                 <Button variant="contained" onClick={navigateToUserLogin}>
                   Exit Application
+                </Button>
+              </div>
+              <div class="p-2">
+                <Button variant="contained" onClick={navigateToChangePassword}>
+                  Change Password
                 </Button>
               </div>
             </div>

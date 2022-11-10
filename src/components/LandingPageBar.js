@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 
 function LandingPageBar() {
   const navigate = useNavigate();
+
   const navigateToAdminLogin = () => {
     navigate("/admin-login");
   };
@@ -30,11 +31,12 @@ function LandingPageBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Best Buy
             </Typography>
-            <Button color="inherit" onClick={navigateToAdminLogin}>
-              Admin Login
-            </Button>
             <Button color="inherit" onClick={navigateToUserLogin}>
               User Login
+            </Button>
+
+            <Button color="inherit" onClick={navigateToAdminLogin}>
+              Admin Login
             </Button>
             <Button color="inherit" onClick={navigateToRegisterUser}>
               Register

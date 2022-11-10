@@ -20,6 +20,7 @@ function AdminLogin() {
   const navigateToAdminHomePage = () => {
     navigate("/admin-home-page");
   };
+
   return (
     <div>
       <LandingPageBar />
@@ -73,7 +74,7 @@ function AdminLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        // onClick={navigateToUserHomePage}
+                        onClick={navigateToAdminHomePage}
                       >
                         Sign In
                       </Button>

@@ -41,9 +41,28 @@ function ForgotPassword() {
                   <Grid item xs={12}>
                     <TextField
                       id="outlined-basic"
-                      label="User Id"
+                      label="Email Id"
                       variant="outlined"
                       required
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="outlined-basic"
+                      label="What Is Your Nick Name ?"
+                      variant="outlined"
+                      required
+                      fullWidth
+                    />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <TextField
+                      id="outlined-basic"
+                      label="What Is Your Favourite Movie ?"
+                      variant="outlined"
+                      required
+                      fullWidth
                     />
                   </Grid>
                   <Grid item xs={12}>
@@ -53,10 +72,14 @@ function ForgotPassword() {
                       type="password"
                       required
                       autoComplete="current-password"
+                      fullWidth
                     />
                   </Grid>
+
                   <Grid item xs={12}>
-                    <Button variant="contained">Update Password</Button>
+                    <Button variant="contained" onClick={navigateToUserLogin}>
+                      Update Password
+                    </Button>
                   </Grid>
                 </Grid>
               </CardContent>

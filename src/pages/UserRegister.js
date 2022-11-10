@@ -23,7 +23,7 @@ function UserRegister() {
           display: "flex",
           flexWrap: "wrap",
           "& > :not(style)": {
-            m: 10,
+            m: 8,
             width: 600,
             height: 550,
           },
@@ -91,10 +91,29 @@ function UserRegister() {
                           rows={4}
                         />
                       </Grid>
+                      <Grid item xs={6}>
+                        <TextField
+                          fullWidth
+                          className=""
+                          id="outlined-basic"
+                          label="What Is Your Nick Name ?"
+                          variant="outlined"
+                          required
+                        />
+                      </Grid>
+                      <Grid item xs={6}>
+                        <TextField
+                          fullWidth
+                          id="outlined-basic"
+                          label="What Is Your Favourite Movie ?"
+                          variant="outlined"
+                          required
+                        />
+                      </Grid>
                       <Grid item xs={12}>
                         <TextField
-                          // fullWidth
-                          // id="fullWidth"
+                          fullWidth
+                          id="fullWidth"
                           label="Password"
                           type="password"
                           required

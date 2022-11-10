@@ -1,11 +1,8 @@
 import React from "react";
+import { Stack, TextField } from "@mui/material";
 
 function CartCard() {
-  return (
-    <div>
-      <h3>User Cart</h3>
-    </div>
-  );
+  return <div></div>;
 }
 
 export default CartCard;
