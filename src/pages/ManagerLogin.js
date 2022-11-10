@@ -15,43 +15,19 @@ import {
   Button,
 } from "@mui/material";
 
-function UserLogin() {
+function ManagerLogin() {
   const navigate = useNavigate();
-  const navigateToUserHomePage = () => {
-    navigate("/user-home-page");
+  const navigateToManagerHomePage = () => {
+    navigate("/manager-home-page");
   };
-  const navigateToUserForgotPassword = () => {
-    navigate("/user-forgot-password");
+
+  const navigateToManagerForgotPassword = () => {
+    navigate("/manager-forgot-password");
   };
+
   return (
     <div>
       <LandingPageBar />
-
-      {/* <div className="d-flex justify-content-center mt-3 ">
-            <Stack spacing={4}>
-              <h4>User Login</h4>
-              <TextField
-                id="outlined-basic"
-                label="User Id"
-                variant="outlined"
-                required
-              />
-              <TextField
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                required
-                autoComplete="current-password"
-              />
-
-              <Button variant="contained" onClick={navigateToUserHomePage}>
-                Sign In
-              </Button>
-              <Button onClick={navigateToForgotPassword}>
-                Forgot Password ?
-              </Button>
-            </Stack>
-          </div> */}
       <Box
         sx={{
           display: "flex",
@@ -71,7 +47,7 @@ function UserLogin() {
             <Card style={{ maxWidth: 450, padding: "20px 5px" }}>
               <CardContent>
                 <Typography gutterBottom variant="h5">
-                  User Login
+                  Manager Login
                 </Typography>
 
                 <form className="mt-3">
@@ -80,7 +56,7 @@ function UserLogin() {
                       <TextField
                         type="email"
                         placeholder="Enter Id"
-                        label="User Id"
+                        label="Manger Id"
                         variant="outlined"
                         required
                       />
@@ -102,7 +78,7 @@ function UserLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToUserHomePage}
+                        onClick={navigateToManagerHomePage}
                       >
                         Sign In
                       </Button>
@@ -112,7 +88,7 @@ function UserLogin() {
                 <Button
                   variant="text"
                   className="mt-2"
-                  onClick={navigateToUserForgotPassword}
+                  onClick={navigateToManagerForgotPassword}
                 >
                   Forgot Password ?
                 </Button>
@@ -125,4 +101,4 @@ function UserLogin() {
   );
 }
 
-export default UserLogin;
+export default ManagerLogin;

@@ -14,6 +14,9 @@ function LandingPageBar() {
   const navigateToAdminLogin = () => {
     navigate("/admin-login");
   };
+  const navigateToManagerLogin = () => {
+    navigate("/manager-login");
+  };
 
   const navigateToUserLogin = () => {
     navigate("/");
@@ -21,6 +24,10 @@ function LandingPageBar() {
 
   const navigateToRegisterUser = () => {
     navigate("/user-register");
+  };
+
+  const navigateToRegisterManager = () => {
+    navigate("/manager-register");
   };
 
   return (
@@ -34,12 +41,17 @@ function LandingPageBar() {
             <Button color="inherit" onClick={navigateToUserLogin}>
               User Login
             </Button>
-
+            <Button color="inherit" onClick={navigateToManagerLogin}>
+              Manager Login
+            </Button>
             <Button color="inherit" onClick={navigateToAdminLogin}>
               Admin Login
             </Button>
+            <Button color="inherit" onClick={navigateToRegisterManager}>
+              Manager Register
+            </Button>
             <Button color="inherit" onClick={navigateToRegisterUser}>
-              Register
+              User Register
             </Button>
           </Toolbar>
         </AppBar>

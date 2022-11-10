@@ -15,43 +15,15 @@ import {
   Button,
 } from "@mui/material";
 
-function UserLogin() {
+function UserChangePassword() {
   const navigate = useNavigate();
-  const navigateToUserHomePage = () => {
-    navigate("/user-home-page");
+  const navigateToUserProfile = () => {
+    navigate("/user-profile");
   };
-  const navigateToUserForgotPassword = () => {
-    navigate("/user-forgot-password");
-  };
+
   return (
     <div>
       <LandingPageBar />
-
-      {/* <div className="d-flex justify-content-center mt-3 ">
-            <Stack spacing={4}>
-              <h4>User Login</h4>
-              <TextField
-                id="outlined-basic"
-                label="User Id"
-                variant="outlined"
-                required
-              />
-              <TextField
-                id="outlined-password-input"
-                label="Password"
-                type="password"
-                required
-                autoComplete="current-password"
-              />
-
-              <Button variant="contained" onClick={navigateToUserHomePage}>
-                Sign In
-              </Button>
-              <Button onClick={navigateToForgotPassword}>
-                Forgot Password ?
-              </Button>
-            </Stack>
-          </div> */}
       <Box
         sx={{
           display: "flex",
@@ -71,24 +43,24 @@ function UserLogin() {
             <Card style={{ maxWidth: 450, padding: "20px 5px" }}>
               <CardContent>
                 <Typography gutterBottom variant="h5">
-                  User Login
+                  Change Password
                 </Typography>
 
                 <form className="mt-3">
                   <Grid container spacing={1}>
-                    <Grid item xs={12}>
+                    {/* <Grid item xs={12}>
                       <TextField
                         type="email"
-                        placeholder="Enter Id"
-                        label="User Id"
+                        placeholder="Enter New Password"
+                        label="New Password"
                         variant="outlined"
                         required
                       />
-                    </Grid>
+                    </Grid> */}
                     <Grid item xs={12}>
                       <TextField
-                        placeholder="Enter Password"
-                        label="Password"
+                        placeholder="Enter New Password"
+                        label="New Password"
                         type="password"
                         variant="outlined"
                         autoComplete="current-password"
@@ -102,20 +74,20 @@ function UserLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToUserHomePage}
+                        onClick={navigateToUserProfile}
                       >
-                        Sign In
+                        Update Password
                       </Button>
                     </Grid>
                   </Grid>
                 </form>
-                <Button
+                {/* <Button
                   variant="text"
                   className="mt-2"
-                  onClick={navigateToUserForgotPassword}
+                  // onClick={navigateToForgotPassword}
                 >
                   Forgot Password ?
-                </Button>
+                </Button> */}
               </CardContent>
             </Card>
           </Grid>
@@ -125,4 +97,4 @@ function UserLogin() {
   );
 }
 
-export default UserLogin;
+export default UserChangePassword;

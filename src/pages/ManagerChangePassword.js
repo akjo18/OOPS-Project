@@ -15,10 +15,10 @@ import {
   Button,
 } from "@mui/material";
 
-function ChangePassword() {
+function ManagerChangePassword() {
   const navigate = useNavigate();
-  const navigateToUserProfile = () => {
-    navigate("/user-profile");
+  const navigateToManagerProfile = () => {
+    navigate("/manager-profile");
   };
 
   return (
@@ -74,7 +74,7 @@ function ChangePassword() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToUserProfile}
+                        onClick={navigateToManagerProfile}
                       >
                         Update Password
                       </Button>
@@ -97,4 +97,4 @@ function ChangePassword() {
   );
 }
 
-export default ChangePassword;
+export default ManagerChangePassword;

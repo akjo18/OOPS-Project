@@ -7,14 +7,14 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 
-function UserProfile() {
+function ManagerProfile() {
   const navigate = useNavigate();
   const navigateToUserLogin = () => {
     navigate("/");
   };
 
-  const navigateToUserChangePassword = () => {
-    navigate("/user-change-password");
+  const navigateToManagerChangePassword = () => {
+    navigate("/manager-change-password");
   };
 
   return (
@@ -27,7 +27,7 @@ function UserProfile() {
           "& > :not(style)": {
             m: 10,
             width: 800,
-            height: 500,
+            height: 450,
           },
         }}
         alignItems="center"
@@ -91,14 +91,14 @@ function UserProfile() {
               </div>
             </div>
             <div class="d-flex flex-row">
-              <div class="p-2">
+              {/* <div class="p-2">
                 <input
                   class="form-control bg-light text-dark"
                   type="text"
                   value="Current Balance: 10000"
                   readonly
                 />
-              </div>
+              </div> */}
               {/* <div class="p-2">
                 <Button variant="contained">TopUp - 500</Button>
               </div> */}
@@ -112,7 +112,7 @@ function UserProfile() {
               <div class="p-2">
                 <Button
                   variant="contained"
-                  onClick={navigateToUserChangePassword}
+                  onClick={navigateToManagerChangePassword}
                 >
                   Change Password
                 </Button>
@@ -125,4 +125,4 @@ function UserProfile() {
   );
 }
 
-export default UserProfile;
+export default ManagerProfile;

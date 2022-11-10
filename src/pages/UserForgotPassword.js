@@ -8,7 +8,7 @@ import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { Grid, Card, CardContent, Typography } from "@mui/material";
 
-function ForgotPassword() {
+function UserForgotPassword() {
   const navigate = useNavigate();
   const navigateToUserLogin = () => {
     navigate("/");
@@ -91,4 +91,4 @@ function ForgotPassword() {
   );
 }
 
-export default ForgotPassword;
+export default UserForgotPassword;
