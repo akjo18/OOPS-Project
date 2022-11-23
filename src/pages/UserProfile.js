@@ -99,9 +99,9 @@ function UserProfile() {
                   readonly
                 />
               </div>
-              {/* <div class="p-2">
-                <Button variant="contained">TopUp - 500</Button>
-              </div> */}
+              <div class="p-2">
+                <Button variant="contained">TopUp Wallet</Button>
+              </div>
             </div>
             <div class="d-flex flex-row-reverse">
               <div class="p-2">
