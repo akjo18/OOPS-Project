@@ -16,13 +16,16 @@ function UserRegister() {
 
   const initialValues = {
     username: "",
-    userid: "",
+
     useremail: "",
-    userphonenumber: "",
+    userid: "",
+    password: "",
     useraddress: "",
+    userphonenumber: "",
+
     securityq1: "",
     securityq2: "",
-    password: "",
+    walletbalance: 1000,
   };
   const [formValues, setFormValues] = useState(initialValues);
 
