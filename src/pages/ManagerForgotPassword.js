@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingPageBar from "../components/LandingPageBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -10,6 +10,31 @@ import { Grid, Card, CardContent, Typography } from "@mui/material";
 
 function ManagerForgotPassword() {
   const navigate = useNavigate();
+
+  const initialValues = {
+    // managername: "",
+    // managerid: "",
+    manageremail: "",
+    // managerphonenumber: "",
+    // manageraddress: "",
+    securityq1: "",
+    securityq2: "",
+    password: "",
+  };
+
+  const [formValues, setFormValues] = useState(initialValues);
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
+
   const navigateToManagerLogin = () => {
     navigate("/manager-login");
   };
@@ -32,59 +57,115 @@ function ManagerForgotPassword() {
       >
         <div className="d-flex justify-content-center ">
           <Grid>
-            <Card style={{ maxWidth: 600, padding: "20px 5px" }}>
+            <Card style={{ maxWidth: 450, padding: "20px 5px" }}>
               <CardContent>
-                <Typography gutterBottom variant="h5" mb={2}>
+                <Typography gutterBottom variant="h5">
                   Reset Password
                 </Typography>
-                <Grid container rowSpacing={2}>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="outlined-basic"
-                      label="Email Id"
-                      variant="outlined"
-                      required
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="outlined-basic"
-                      label="What Is Your Nick Name ?"
-                      variant="outlined"
-                      required
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="outlined-basic"
-                      label="What Is Your Favourite Movie ?"
-                      variant="outlined"
-                      required
-                      fullWidth
-                    />
-                  </Grid>
-                  <Grid item xs={12}>
-                    <TextField
-                      id="outlined-password-input"
-                      label="New Password"
-                      type="password"
-                      required
-                      autoComplete="current-password"
-                      fullWidth
-                    />
-                  </Grid>
 
-                  <Grid item xs={12}>
-                    <Button
-                      variant="contained"
-                      onClick={navigateToManagerLogin}
-                    >
-                      Update Password
-                    </Button>
+                <form className="mt-3" onSubmit={handleSubmit}>
+                  <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                      <TextField
+                        type="email"
+                        placeholder="Email Id"
+                        label="Email Id"
+                        name="manageremail"
+                        variant="outlined"
+                        value={formValues.manageremail}
+                        onChange={handleChange}
+                        fullWidth
+                        required
+                      />
+                      {/* <input
+                        type="text"
+                        name="managerid"
+                        placeholder="manager Id"
+                        value={formValues.managerid}
+                        onChange={handleChange}
+                      /> */}
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        type="text"
+                        placeholder="What is Your Nick Name ?"
+                        label="What is Your Nick Name ?"
+                        name="securityq1"
+                        variant="outlined"
+                        value={formValues.securityq1}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                      />
+                      {/* <input
+                        type="text"
+                        name="managerid"
+                        placeholder="manager Id"
+                        value={formValues.managerid}
+                        onChange={handleChange}
+                      /> */}
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        type="text"
+                        placeholder="What is Your Favorite Movie ?"
+                        label="What is Your Favorite Movie ?"
+                        name="securityq2"
+                        variant="outlined"
+                        value={formValues.securityq2}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                      />
+                      {/* <input
+                        type="text"
+                        name="managerid"
+                        placeholder="manager Id"
+                        value={formValues.managerid}
+                        onChange={handleChange}
+                      /> */}
+                    </Grid>
+                    <Grid item xs={12}>
+                      <TextField
+                        placeholder="Enter Password"
+                        label="Password"
+                        type="password"
+                        name="password"
+                        variant="outlined"
+                        autoComplete="current-password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                        required
+                        fullWidth
+                      />
+                      {/* <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                      /> */}
+                    </Grid>
+
+                    <Grid item xs={12}>
+                      <Button
+                        type="submit"
+                        variant="contained"
+                        color="primary"
+                        required
+                      >
+                        Update Password
+                      </Button>
+                    </Grid>
                   </Grid>
-                </Grid>
+                </form>
+                {/* <Button
+                  variant="text"
+                  className="mt-2"
+                  onClick={navigateTomanagerForgotPassword}
+                >
+                  Forgot Password ?
+                </Button> */}
               </CardContent>
             </Card>
           </Grid>

@@ -17,17 +17,23 @@ function AdminProductCard(props) {
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    // setOpen(true);
+    let obj = {
+      name: props.name,
+      price: props.price,
+      qty: props.qty,
+    };
+    console.log(obj);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   const navigate = useNavigate();
-  const navigateToCart = () => {
-    navigate("/user-cart");
-  };
+  // const navigateToCart = () => {
+  //   navigate("/user-cart");
+  // };
   return (
     <div className="">
       <Card sx={{ width: 250 }}>
@@ -49,7 +55,7 @@ function AdminProductCard(props) {
           <Button variant="contained" onClick={handleClickOpen}>
             Delete Item
           </Button>
-          <Dialog
+          {/* <Dialog
             open={open}
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
@@ -64,7 +70,7 @@ function AdminProductCard(props) {
                 Close
               </Button>
             </DialogActions>
-          </Dialog>
+          </Dialog> */}
         </CardActions>
       </Card>
     </div>

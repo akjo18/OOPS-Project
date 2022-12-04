@@ -100,7 +100,7 @@ function UserProfile() {
                 />
               </div>
               <div class="p-2">
-                <Button variant="contained">TopUp Wallet</Button>
+                <Button variant="contained">TopUp 500</Button>
               </div>
             </div>
             <div class="d-flex flex-row-reverse">

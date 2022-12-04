@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingPageBar from "../components/LandingPageBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -17,6 +17,22 @@ import {
 
 function AdminLogin() {
   const navigate = useNavigate();
+
+  const initialValues = { adminid: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
+
   const navigateToAdminHomePage = () => {
     navigate("/admin-home-page");
   };
@@ -46,14 +62,17 @@ function AdminLogin() {
                   Admin Login
                 </Typography>
 
-                <form className="mt-3">
+                <form className="mt-3" onSubmit={handleSubmit}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <TextField
-                        type="email"
+                        type="text"
                         placeholder="Enter Id"
                         label="Admin Id"
+                        name="adminid"
                         variant="outlined"
+                        value={formValues.adminid}
+                        onChange={handleChange}
                         required
                       />
                     </Grid>
@@ -62,8 +81,11 @@ function AdminLogin() {
                         placeholder="Enter Password"
                         label="Password"
                         type="password"
+                        name="password"
                         variant="outlined"
                         autoComplete="current-password"
+                        value={formValues.password}
+                        onChange={handleChange}
                         required
                       />
                     </Grid>
@@ -74,7 +96,7 @@ function AdminLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToAdminHomePage}
+                        // onClick={navigateToAdminHomePage}
                       >
                         Sign In
                       </Button>

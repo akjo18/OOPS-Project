@@ -6,6 +6,7 @@ import TextField from "@mui/material/TextField";
 // import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import ManagerBar from "../components/ManagerBar";
 
 function ManagerProfile() {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ function ManagerProfile() {
 
   return (
     <div>
-      <UserBar />
+      <ManagerBar />
       <Box
         sx={{
           display: "flex",

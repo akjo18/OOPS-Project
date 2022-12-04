@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingPageBar from "../components/LandingPageBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -17,6 +17,20 @@ import {
 
 function ManagerLogin() {
   const navigate = useNavigate();
+  const initialValues = { managerid: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
   const navigateToManagerHomePage = () => {
     navigate("/manager-home-page");
   };
@@ -50,26 +64,46 @@ function ManagerLogin() {
                   Manager Login
                 </Typography>
 
-                <form className="mt-3">
+                <form className="mt-3" onSubmit={handleSubmit}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <TextField
-                        type="email"
+                        type="text"
                         placeholder="Enter Id"
-                        label="Manger Id"
+                        label="Manager Id"
+                        name="managerid"
                         variant="outlined"
+                        value={formValues.managerid}
+                        onChange={handleChange}
                         required
                       />
+                      {/* <input
+                        type="text"
+                        name="managerid"
+                        placeholder="User Id"
+                        value={formValues.managerid}
+                        onChange={handleChange}
+                      /> */}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
                         placeholder="Enter Password"
                         label="Password"
                         type="password"
+                        name="password"
                         variant="outlined"
                         autoComplete="current-password"
+                        value={formValues.password}
+                        onChange={handleChange}
                         required
                       />
+                      {/* <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                      /> */}
                     </Grid>
 
                     <Grid item xs={12}>
@@ -78,7 +112,6 @@ function ManagerLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToManagerHomePage}
                       >
                         Sign In
                       </Button>

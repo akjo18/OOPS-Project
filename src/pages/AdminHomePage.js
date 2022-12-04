@@ -12,18 +12,39 @@ function AdminHomePage() {
       qty: 5,
     },
     {
-      name: "iPhone 13",
+      name: "Dell Inspiron 14",
       price: 70000,
       qty: 4,
     },
     ,
     {
-      name: "iPhone 12",
+      name: "Samsung Galaxy 10",
       price: 60000,
       qty: 6,
     },
     {
-      name: "iPhone 11",
+      name: "Apple Smart Watch 6",
+      price: 50000,
+      qty: 10,
+    },
+    {
+      name: "iPhone 13",
+      price: 80000,
+      qty: 5,
+    },
+    {
+      name: "Dell Inspiron 13",
+      price: 70000,
+      qty: 4,
+    },
+    ,
+    {
+      name: "Samsung Galaxy 9",
+      price: 60000,
+      qty: 6,
+    },
+    {
+      name: "Apple Smart Watch 5",
       price: 50000,
       qty: 10,
     },

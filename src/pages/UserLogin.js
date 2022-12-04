@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LandingPageBar from "../components/LandingPageBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -17,11 +17,30 @@ import {
 
 function UserLogin() {
   const navigate = useNavigate();
+  const initialValues = { userid: "", password: "" };
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
+
   const navigateToUserHomePage = () => {
     navigate("/user-home-page");
   };
   const navigateToUserForgotPassword = () => {
     navigate("/user-forgot-password");
+  };
+
+  const onSubmit = () => {
+    console.log("Login");
   };
   return (
     <div>
@@ -35,7 +54,7 @@ function UserLogin() {
                 label="User Id"
                 variant="outlined"
                 required
-              />
+              />onSubmit={(e) => onSubmit(e)}
               <TextField
                 id="outlined-password-input"
                 label="Password"
@@ -74,26 +93,46 @@ function UserLogin() {
                   User Login
                 </Typography>
 
-                <form className="mt-3">
+                <form className="mt-3" onSubmit={handleSubmit}>
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <TextField
-                        type="email"
+                        type="text"
                         placeholder="Enter Id"
                         label="User Id"
+                        name="userid"
                         variant="outlined"
+                        value={formValues.userid}
+                        onChange={handleChange}
                         required
                       />
+                      {/* <input
+                        type="text"
+                        name="userid"
+                        placeholder="User Id"
+                        value={formValues.userid}
+                        onChange={handleChange}
+                      /> */}
                     </Grid>
                     <Grid item xs={12}>
                       <TextField
                         placeholder="Enter Password"
                         label="Password"
                         type="password"
+                        name="password"
                         variant="outlined"
                         autoComplete="current-password"
+                        value={formValues.password}
+                        onChange={handleChange}
                         required
                       />
+                      {/* <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={formValues.password}
+                        onChange={handleChange}
+                      /> */}
                     </Grid>
 
                     <Grid item xs={12}>
@@ -102,7 +141,6 @@ function UserLogin() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToUserHomePage}
                       >
                         Sign In
                       </Button>

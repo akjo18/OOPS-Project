@@ -14,20 +14,30 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 function UserProductsCard(props) {
+  // var sample = [];
+
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    // setOpen(true);
+    let obj = {
+      name: props.name,
+      price: props.price,
+      qty: props.qty,
+    };
+
+    console.log(obj);
   };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   const navigate = useNavigate();
   const navigateToCart = () => {
     navigate("/user-cart");
   };
+  // console.log(props);
 
   return (
     <div className="">
@@ -54,7 +64,7 @@ function UserProductsCard(props) {
           <Button variant="contained" onClick={handleClickOpen}>
             Add To Cart
           </Button>
-          <Dialog
+          {/* <Dialog
             open={open}
             onClose={handleClose}
             aria-labelledby="alert-dialog-title"
@@ -69,7 +79,7 @@ function UserProductsCard(props) {
                 Close
               </Button>
             </DialogActions>
-          </Dialog>
+          </Dialog> */}
         </CardActions>
       </Card>
     </div>
