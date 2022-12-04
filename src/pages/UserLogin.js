@@ -14,7 +14,7 @@ import {
   Typography,
   Button,
 } from "@mui/material";
-
+import { toast } from "react-toastify";
 import { loginUser } from "../services/user-service";
 
 function UserLogin() {
@@ -40,17 +40,17 @@ function UserLogin() {
         // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
         //   navigate("/");
         // }
+        toast.success("Login Successful");
+        navigate("/user-home-page");
       })
       .catch((error) => {
         // if the data is not returned successfully, then the user is redirected to the login page
         console.log(error);
         console.log("error log");
+        toast.error("Invalid Credentials");
       });
   };
 
-  const navigateToUserHomePage = () => {
-    navigate("/user-home-page");
-  };
   const navigateToUserForgotPassword = () => {
     navigate("/user-forgot-password");
   };

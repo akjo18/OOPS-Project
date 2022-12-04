@@ -10,6 +10,7 @@ import { CardContent, Grid, Card, Typography } from "@mui/material";
 import { width } from "@mui/system";
 import { CenterFocusStrong } from "@mui/icons-material";
 import { signUp } from "../services/user-service";
+import { toast } from "react-toastify";
 
 function UserRegister() {
   const navigate = useNavigate();
@@ -45,6 +46,8 @@ function UserRegister() {
         // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
         //   navigate("/");
         // }
+        toast.success("Customer Registration Successful");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -52,9 +55,6 @@ function UserRegister() {
       });
   };
 
-  const navigateToUserLogin = () => {
-    navigate("/");
-  };
   return (
     <div>
       <LandingPageBar />

@@ -10,6 +10,7 @@ import { CardContent, Grid, Card, Typography } from "@mui/material";
 import { width } from "@mui/system";
 import { CenterFocusStrong } from "@mui/icons-material";
 import { managerSignUp } from "../services/manager-service";
+import { toast } from "react-toastify";
 
 function ManagerRegister() {
   const navigate = useNavigate();
@@ -40,6 +41,8 @@ function ManagerRegister() {
         // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
         //   navigate("/");
         // }
+        toast.success("Manager Registration Successful");
+        navigate("/manager-login");
       })
       .catch((error) => {
         console.log(error);
@@ -47,9 +50,6 @@ function ManagerRegister() {
       });
   };
 
-  const navigateToManagerLogin = () => {
-    navigate("/manager-login");
-  };
   return (
     <div>
       <LandingPageBar />

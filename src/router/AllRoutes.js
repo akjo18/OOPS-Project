@@ -21,9 +21,13 @@ import ManagerRegister from "../pages/ManagerRegister";
 
 import ManagerProfile from "../pages/ManagerProfile";
 
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
+
 function AllRoutes() {
   return (
     <BrowserRouter>
+      <ToastContainer position="bottom-center" />
       <Routes>
         <Route path="/user-forgot-password" element={<UserForgotPassword />} />
         <Route path="/user-change-password" element={<UserChangePassword />} />

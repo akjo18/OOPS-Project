@@ -5,3 +5,9 @@ export const managerSignUp = (user) => {
     .post("/ManagerRegistration", user)
     .then((response) => response.data);
 };
+
+export const loginManager = (loginDetail) => {
+  return myAxios
+    .post("/managerLogin", loginDetail)
+    .then((response) => response.data);
+};

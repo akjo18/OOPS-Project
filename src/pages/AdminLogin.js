@@ -14,11 +14,13 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import { toast } from "react-toastify";
+import { loginAdmin } from "../services/admin-service";
 
 function AdminLogin() {
   const navigate = useNavigate();
 
-  const initialValues = { adminid: "", password: "" };
+  const initialValues = { adminId: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
 
   const handleChange = (e) => {
@@ -31,10 +33,23 @@ function AdminLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formValues);
-  };
 
-  const navigateToAdminHomePage = () => {
-    navigate("/admin-home-page");
+    loginAdmin(formValues)
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+        toast.success("Admin Login Successful");
+        navigate("/admin-home-page");
+      })
+      .catch((error) => {
+        // if the data is not returned successfully, then the user is redirected to the login page
+        console.log(error);
+        console.log("error log");
+        toast.error("Invalid Credentials");
+      });
   };
 
   return (
@@ -69,9 +84,9 @@ function AdminLogin() {
                         type="text"
                         placeholder="Enter Id"
                         label="Admin Id"
-                        name="adminid"
+                        name="adminId"
                         variant="outlined"
-                        value={formValues.adminid}
+                        value={formValues.adminId}
                         onChange={handleChange}
                         required
                       />

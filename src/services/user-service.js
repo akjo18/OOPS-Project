@@ -5,5 +5,7 @@ export const signUp = (user) => {
 };
 
 export const loginUser = (loginDetail) => {
-  return myAxios.post("/", loginDetail).then((response) => response.data);
+  return myAxios
+    .post("/loginByPassword", loginDetail)
+    .then((response) => response.data);
 };
