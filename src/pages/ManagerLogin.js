@@ -35,10 +35,6 @@ function ManagerLogin() {
     navigate("/manager-home-page");
   };
 
-  const navigateToManagerForgotPassword = () => {
-    navigate("/manager-forgot-password");
-  };
-
   return (
     <div>
       <LandingPageBar />
@@ -118,13 +114,6 @@ function ManagerLogin() {
                     </Grid>
                   </Grid>
                 </form>
-                <Button
-                  variant="text"
-                  className="mt-2"
-                  onClick={navigateToManagerForgotPassword}
-                >
-                  Forgot Password ?
-                </Button>
               </CardContent>
             </Card>
           </Grid>

@@ -26,9 +26,9 @@ function ManagerProfile() {
           display: "flex",
           flexWrap: "wrap",
           "& > :not(style)": {
-            m: 10,
-            width: 800,
-            height: 450,
+            m: 20,
+            width: 600,
+            height: 400,
           },
         }}
         alignItems="center"
@@ -50,7 +50,7 @@ function ManagerProfile() {
                   variant="filled"
                 />
               </div>
-              <div class="p-2">
+              {/* <div class="p-2">
                 {" "}
                 <TextField
                   id="filled-read-only-input"
@@ -61,9 +61,9 @@ function ManagerProfile() {
                   }}
                   variant="filled"
                 />
-              </div>
+              </div> */}
             </div>
-            <div class="d-flex flex-row">
+            {/* <div class="d-flex flex-row">
               <div class="p-2">
                 <TextField
                   id="outlined-multiline-static"
@@ -71,6 +71,19 @@ function ManagerProfile() {
                   multiline
                   rows={4}
                   defaultValue="143 BC Lines , Meerut Cantonment , Uttar Pradesh (U.P) , 250001"
+                  InputProps={{
+                    readOnly: true,
+                  }}
+                  variant="filled"
+                />
+              </div>
+            </div> */}
+            <div class="d-flex flex-row">
+              <div class="p-2">
+                <TextField
+                  id="filled-read-only-input"
+                  label="Phone Number"
+                  defaultValue="9896111979"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -110,14 +123,14 @@ function ManagerProfile() {
                   Exit Application
                 </Button>
               </div>
-              <div class="p-2">
+              {/* <div class="p-2">
                 <Button
                   variant="contained"
                   onClick={navigateToManagerChangePassword}
                 >
                   Change Password
                 </Button>
-              </div>
+              </div> */}
             </div>
           </div>
         </Paper>

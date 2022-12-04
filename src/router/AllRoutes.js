@@ -18,9 +18,8 @@ import ManagerAddProduct from "../pages/ManagerAddProduct";
 import ManagerLogin from "../pages/ManagerLogin";
 import ManagerHomePage from "../pages/ManagerHomePage";
 import ManagerRegister from "../pages/ManagerRegister";
-import ManagerForgotPassword from "../pages/ManagerForgotPassword";
+
 import ManagerProfile from "../pages/ManagerProfile";
-import ManagerChangePassword from "../pages/ManagerChangePassword";
 
 function AllRoutes() {
   return (
@@ -43,14 +42,6 @@ function AllRoutes() {
         <Route path="/manager-add-products" element={<ManagerAddProduct />} />
         <Route path="/manager-register" element={<ManagerRegister />} />
         <Route path="/manager-profile" element={<ManagerProfile />} />
-        <Route
-          path="/manager-forgot-password"
-          element={<ManagerForgotPassword />}
-        />
-        <Route
-          path="/manager-change-password"
-          element={<ManagerChangePassword />}
-        />
       </Routes>
     </BrowserRouter>
   );

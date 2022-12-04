@@ -15,17 +15,15 @@ function UserRegister() {
   const navigate = useNavigate();
 
   const initialValues = {
-    username: "",
-
-    useremail: "",
-    userid: "",
+    customerId: "",
+    address: "",
+    answer1: "",
+    answer2: "",
+    email: "",
+    name: "",
     password: "",
-    useraddress: "",
-    userphonenumber: "",
-
-    securityq1: "",
-    securityq2: "",
-    walletbalance: 1000,
+    phoneNumber: "",
+    walletBalance: 1000,
   };
   const [formValues, setFormValues] = useState(initialValues);
 
@@ -40,18 +38,18 @@ function UserRegister() {
     e.preventDefault();
     console.log(formValues);
 
-    // signUp(formValues)
-    //   .then((response) => {
-    //     console.log(response); // response is the data returned from the server
-    //     console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
-    //     // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
-    //     //   navigate("/");
-    //     // }
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     console.log("error log");
-    //   });
+    signUp(formValues)
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   const navigateToUserLogin = () => {
@@ -88,11 +86,11 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="username"
+                          name="name"
                           id="outlined-basic"
                           label="User Name"
                           variant="outlined"
-                          value={formValues.username}
+                          value={formValues.name}
                           onChange={handleChange}
                           required
                         />
@@ -101,11 +99,11 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="userid"
+                          name="customerId"
                           id="outlined-basic"
                           label="User Id"
                           variant="outlined"
-                          value={formValues.userid}
+                          value={formValues.customerId}
                           onChange={handleChange}
                           required
                         />
@@ -114,11 +112,11 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="email"
-                          name="useremail"
+                          name="email"
                           label="Email Address"
                           id="fullWidth"
                           variant="outlined"
-                          value={formValues.useremail}
+                          value={formValues.email}
                           onChange={handleChange}
                           required
                         />
@@ -128,11 +126,11 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="userphonenumber"
+                          name="phoneNumber"
                           id="outlined-basic"
                           label="Phone Number"
                           variant="outlined"
-                          value={formValues.userphonenumber}
+                          value={formValues.phoneNumber}
                           onChange={handleChange}
                           required
                         />
@@ -142,13 +140,13 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="useraddress"
+                          name="address"
                           id="outlined-multiline-static"
                           label="Address"
                           multiline
                           required
                           rows={4}
-                          value={formValues.useraddress}
+                          value={formValues.address}
                           onChange={handleChange}
                         />
                       </Grid>
@@ -156,12 +154,12 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="securityq1"
+                          name="answer1"
                           className=""
                           id="outlined-basic"
                           label="What Is Your Nick Name ?"
                           variant="outlined"
-                          value={formValues.securityq1}
+                          value={formValues.answer1}
                           onChange={handleChange}
                           required
                         />
@@ -170,11 +168,11 @@ function UserRegister() {
                         <TextField
                           fullWidth
                           type="text"
-                          name="securityq2"
+                          name="answer2"
                           id="outlined-basic"
                           label="What Is Your Favourite Movie ?"
                           variant="outlined"
-                          value={formValues.securityq2}
+                          value={formValues.answer2}
                           onChange={handleChange}
                           required
                         />

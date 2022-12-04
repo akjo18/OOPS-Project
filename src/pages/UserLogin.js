@@ -15,9 +15,11 @@ import {
   Button,
 } from "@mui/material";
 
+import { loginUser } from "../services/user-service";
+
 function UserLogin() {
   const navigate = useNavigate();
-  const initialValues = { userid: "", password: "" };
+  const initialValues = { email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
 
   const handleChange = (e) => {
@@ -30,6 +32,20 @@ function UserLogin() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formValues);
+
+    loginUser(formValues)
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+      })
+      .catch((error) => {
+        // if the data is not returned successfully, then the user is redirected to the login page
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   const navigateToUserHomePage = () => {
@@ -97,12 +113,12 @@ function UserLogin() {
                   <Grid container spacing={1}>
                     <Grid item xs={12}>
                       <TextField
-                        type="text"
-                        placeholder="Enter Id"
-                        label="User Id"
-                        name="userid"
+                        type="email"
+                        placeholder="Enter Email"
+                        label="Email"
+                        name="email"
                         variant="outlined"
-                        value={formValues.userid}
+                        value={formValues.email}
                         onChange={handleChange}
                         required
                       />

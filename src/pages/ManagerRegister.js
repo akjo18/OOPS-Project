@@ -9,18 +9,15 @@ import { useNavigate } from "react-router-dom";
 import { CardContent, Grid, Card, Typography } from "@mui/material";
 import { width } from "@mui/system";
 import { CenterFocusStrong } from "@mui/icons-material";
+import { managerSignUp } from "../services/manager-service";
 
 function ManagerRegister() {
   const navigate = useNavigate();
 
   const initialValues = {
-    managername: "",
-    managerid: "",
-    manageremail: "",
-    managerphonenumber: "",
-    manageraddress: "",
-    securityq1: "",
-    securityq2: "",
+    managerName: "",
+    managerId: "",
+    managerPhoneNumber: "",
     password: "",
   };
   const [formValues, setFormValues] = useState(initialValues);
@@ -35,6 +32,19 @@ function ManagerRegister() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formValues);
+
+    managerSignUp(formValues)
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   const navigateToManagerLogin = () => {
@@ -48,8 +58,8 @@ function ManagerRegister() {
           display: "flex",
           flexWrap: "wrap",
           "& > :not(style)": {
-            m: 8,
-            width: 600,
+            m: 12,
+            width: 400,
             height: 550,
           },
         }}
@@ -62,33 +72,20 @@ function ManagerRegister() {
             <Card style={{ maxWidth: 600, padding: "20px 5px" }}>
               <CardContent>
                 <Typography gutterBottom variant="h5" mb={2}>
-                  New manager Register
+                  New Manager Register
                 </Typography>
                 <form className="pt-3" onSubmit={handleSubmit}>
                   <Grid container spacing={2}>
                     <Grid container rowSpacing={2} columnSpacing={{ xs: 4 }}>
-                      <Grid item xs={6}>
+                      <Grid item xs={12}>
                         <TextField
                           fullWidth
                           type="text"
-                          name="managername"
+                          name="managerName"
                           id="outlined-basic"
                           label="Manager Name"
                           variant="outlined"
-                          value={formValues.managername}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField
-                          fullWidth
-                          type="text"
-                          name="managerid"
-                          id="outlined-basic"
-                          label="manager Id"
-                          variant="outlined"
-                          value={formValues.managerid}
+                          value={formValues.managerName}
                           onChange={handleChange}
                           required
                         />
@@ -96,72 +93,31 @@ function ManagerRegister() {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
-                          type="email"
-                          name="manageremail"
-                          label="Email Address"
-                          id="fullWidth"
+                          type="text"
+                          name="managerId"
+                          id="outlined-basic"
+                          label="Manager Id"
                           variant="outlined"
-                          value={formValues.manageremail}
+                          value={formValues.managerId}
                           onChange={handleChange}
                           required
                         />
                       </Grid>
 
-                      <Grid item xs={6}>
+                      <Grid item xs={12}>
                         <TextField
                           fullWidth
                           type="text"
-                          name="managerphonenumber"
+                          name="managerPhoneNumber"
                           id="outlined-basic"
                           label="Phone Number"
                           variant="outlined"
-                          value={formValues.managerphonenumber}
+                          value={formValues.managerPhoneNumber}
                           onChange={handleChange}
                           required
                         />
                       </Grid>
 
-                      <Grid item xs={6}>
-                        <TextField
-                          fullWidth
-                          type="text"
-                          name="manageraddress"
-                          id="outlined-multiline-static"
-                          label="Address"
-                          multiline
-                          required
-                          rows={4}
-                          value={formValues.manageraddress}
-                          onChange={handleChange}
-                        />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField
-                          fullWidth
-                          type="text"
-                          name="securityq1"
-                          className=""
-                          id="outlined-basic"
-                          label="What Is Your Nick Name ?"
-                          variant="outlined"
-                          value={formValues.securityq1}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Grid>
-                      <Grid item xs={6}>
-                        <TextField
-                          fullWidth
-                          type="text"
-                          name="securityq2"
-                          id="outlined-basic"
-                          label="What Is Your Favourite Movie ?"
-                          variant="outlined"
-                          value={formValues.securityq2}
-                          onChange={handleChange}
-                          required
-                        />
-                      </Grid>
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
