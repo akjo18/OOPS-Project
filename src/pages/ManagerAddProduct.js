@@ -9,6 +9,8 @@ import { useNavigate } from "react-router-dom";
 import { CardContent, Grid, Card, Typography } from "@mui/material";
 import { width } from "@mui/system";
 import { CenterFocusStrong } from "@mui/icons-material";
+import { toast } from "react-toastify";
+import { addProduct } from "../services/manager-service";
 
 function ManagerAddProduct() {
   const navigate = useNavigate();
@@ -33,6 +35,18 @@ function ManagerAddProduct() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formValues);
+
+    addProduct(formValues)
+      .then((response) => {
+        console.log(response);
+        console.log("success log");
+        toast.success("Product Added Successfully");
+        // navigateToAdminHomePage();
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   const navigateToManagerHomePage = () => {
