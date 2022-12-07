@@ -16,12 +16,12 @@ function ManagerAddProduct() {
   const navigate = useNavigate();
 
   const initialValues = {
-    name: "",
-    productId: "",
-    quantity: "",
     description: "",
-    price: "",
     image: "",
+    name: "",
+    price: "",
+    productNumber:"",
+    quantity: ""
   };
 
   const [formValues, setFormValues] = useState(initialValues);
@@ -83,11 +83,11 @@ function ManagerAddProduct() {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
-                          name="productId"
+                          name="productNumber"
                           id="outlined-basic"
-                          label="Id"
+                          label="Product Identification Number"
                           variant="outlined"
-                          value={formValues.productId}
+                          value={formValues.productNumber}
                           onChange={handleChange}
                           required
                         />

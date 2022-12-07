@@ -19,20 +19,20 @@ export const deleteProduct = (name) => {
 // post method to add product
 
 export const addProduct = (product) => {
-  return myAxios.post("/addProduct", product).then((response) => response.data);
+  return myAxios.post("/createProductByAdmin", product).then((response) => response.data);
 };
 
 // delete method to delete user (by email)
 
 export const deleteUser = (customerEmail) => {
   return myAxios
-    .delete(`/deleteCustomerByAdmin/${customerEmail}`)
+    .get(`/deleteCustomerByAdmin/${customerEmail}`)
     .then((response) => response.data);
 };
 
 // delete method to delete manager (by id)
-export const deleteManager = (id) => {
+export const deleteManager = (managerId) => {
   return myAxios
-    .delete(`/deleteManager/${id}`)
+    .get(`/deleteManagerByAdmin/${managerId}`)
     .then((response) => response.data);
 };

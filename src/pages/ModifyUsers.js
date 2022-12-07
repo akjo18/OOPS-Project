@@ -48,7 +48,7 @@ function ModifyUsers() {
   const handleSubmitCustomer = (e) => {
     e.preventDefault();
     console.log(customerFormValues);
-    deleteUser(customerFormValues)
+    deleteUser(customerFormValues.email)
       .then((response) => {
         console.log(response); // response is the data returned from the server
         console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
@@ -59,6 +59,7 @@ function ModifyUsers() {
         navigate("/admin-home-page");
       })
       .catch((error) => {
+        toast.warn("Not valid Customer email");
         console.log(error);
         console.log("error log");
       });
@@ -78,6 +79,7 @@ function ModifyUsers() {
         navigate("/admin-home-page");
       })
       .catch((error) => {
+        toast.warn("Invalid Manager Details");
         console.log(error);
         console.log("error log");
       });

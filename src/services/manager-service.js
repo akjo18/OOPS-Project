@@ -23,11 +23,13 @@ export const getManagerProfile = () => {
 };
 // post method to add product
 export const addProduct = (product) => {
-  return myAxios.post("/addProduct", product).then((response) => response.data);
+  return myAxios
+  .post("/createProductByManager", product)
+  .then((response) => response.data);
 };
 // delete method to delete product
 export const deleteProduct = (name) => {
   return myAxios
-    .delete(`/deleteProduct/${name}`)
+    .get(`/deleteProductByManager/${name}`)
     .then((response) => response.data);
 };
