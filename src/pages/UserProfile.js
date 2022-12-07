@@ -6,8 +6,20 @@ import TextField from "@mui/material/TextField";
 // import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { myAxios } from "../services/helper";
+import { toast } from "react-toastify";
+import { exitApplication } from "../services/user-service";
 
 function UserProfile() {
+  const [user, setUser] = useState([]);
+
+  React.useEffect(() => {
+    myAxios
+      .get("/user/profile")
+      .then((response) => setUser(response.data))
+      .catch((error) => console.log(error));
+  }, []);
+
   const navigate = useNavigate();
   const navigateToUserLogin = () => {
     navigate("/");
@@ -17,6 +29,25 @@ function UserProfile() {
     navigate("/user-change-password");
   };
   const [walletBalance, setWalletBalance] = useState(1000);
+
+  const handleExitApplication = () => {
+    exitApplication()
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+        toast.success("Application Exit Successful");
+        navigate("/");
+      })
+      .catch((error) => {
+        // if the data is not returned successfully, then the user is redirected to the login page
+        console.log(error);
+        console.log("error log");
+        toast.error("Invalid Credentials");
+      });
+  };
 
   const handleWalletBalance = () => {
     setWalletBalance(walletBalance + 500);
@@ -47,7 +78,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Name"
-                  defaultValue="Akshat Johar"
+                  value="Akshat Johar"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -59,7 +90,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Email Id"
-                  defaultValue="akshatjohar@outlook.com"
+                  value="akshatjohar@outlook.com"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -74,7 +105,7 @@ function UserProfile() {
                   label="Address"
                   multiline
                   rows={4}
-                  defaultValue="143 BC Lines , Meerut Cantonment , Uttar Pradesh (U.P) , 250001"
+                  value="143 BC Lines , Meerut Cantonment , Uttar Pradesh (U.P) , 250001"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -87,7 +118,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Phone Number"
-                  defaultValue="9896111979"
+                  value="9896111979"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -115,7 +146,7 @@ function UserProfile() {
             </div>
             <div class="d-flex flex-row-reverse">
               <div class="p-2">
-                <Button variant="contained" onClick={navigateToUserLogin}>
+                <Button variant="contained" onClick={handleExitApplication}>
                   Exit Application
                 </Button>
               </div>

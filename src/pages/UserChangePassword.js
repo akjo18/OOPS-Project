@@ -15,6 +15,8 @@ import {
   Button,
 } from "@mui/material";
 import UserBar from "../components/UserBar";
+import { toast } from "react-toastify";
+import { changePassword } from "../services/user-service";
 
 function UserChangePassword() {
   const navigate = useNavigate();
@@ -34,6 +36,23 @@ function UserChangePassword() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formValues);
+
+    changePassword(formValues)
+      .then((response) => {
+        console.log(response); // response is the data returned from the server
+        console.log("success log"); // if the data is returned successfully, then the user is redirected to the login page
+        // if (response.status === 200) {        // if the data is returned successfully, then the user is redirected to the login page
+        //   navigate("/");
+        // }
+        toast.success("Password Reset Successful");
+        navigate("/user-profile");
+      })
+      .catch((error) => {
+        // if the data is not returned successfully, then the user is redirected to the login page
+        console.log(error);
+        console.log("error log");
+        toast.error("Invalid Credentials");
+      });
   };
 
   const navigateToUserProfile = () => {

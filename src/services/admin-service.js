@@ -7,9 +7,9 @@ export const loginAdmin = (loginDetail) => {
 };
 
 // get method to view product list
-export const getProductList = () => {
-  return myAxios.get("/getProductList").then((response) => response.data);
-};
+// export const getProductList = () => {
+//   return myAxios.get("/getProductList").then((response) => response.data);
+// };
 // delete method to delete product
 export const deleteProduct = (name) => {
   return myAxios
