@@ -24,6 +24,8 @@ function UserProductsCard(props) {
       name: props.name,
       price: props.price,
       qty: props.qty,
+      id: props.id,
+      imgUrl: props.imgUrl,
     };
 
     console.log(obj);

@@ -10,43 +10,30 @@ function ManagerHomePage() {
       name: "iPhone 14",
       price: 80000,
       qty: 5,
+      id: 1,
+      imgUrl: "https://i.postimg.cc/LszsMdsT/laptop.webp",
     },
     {
       name: "Dell Inspiron 14",
       price: 70000,
       qty: 4,
+      id: 2,
+      imgUrl: "https://i.postimg.cc/LszsMdsT/laptop.webp",
     },
     ,
     {
       name: "Samsung Galaxy 10",
       price: 60000,
       qty: 6,
+      id: 3,
+      imgUrl: "https://i.postimg.cc/LszsMdsT/laptop.webp",
     },
     {
       name: "Apple Smart Watch 6",
       price: 50000,
       qty: 10,
-    },
-    {
-      name: "iPhone 13",
-      price: 80000,
-      qty: 5,
-    },
-    {
-      name: "Dell Inspiron 13",
-      price: 70000,
-      qty: 4,
-    },
-    ,
-    {
-      name: "Samsung Galaxy 9",
-      price: 60000,
-      qty: 6,
-    },
-    {
-      name: "Apple Smart Watch 5",
-      price: 50000,
-      qty: 10,
+      id: 4,
+      imgUrl: "https://i.postimg.cc/LszsMdsT/laptop.webp",
     },
   ];
 
@@ -77,6 +64,8 @@ function ManagerHomePage() {
                   name={item.name}
                   price={item.price}
                   qty={item.qty}
+                  id={item.id}
+                  imgUrl={item.imgUrl}
                 />
               </div>
             );

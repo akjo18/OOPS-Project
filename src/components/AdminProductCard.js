@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -12,18 +12,31 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { toast } from "react-toastify";
+import { deleteProduct } from "../services/manager-service";
 
 function AdminProductCard(props) {
-  const [open, setOpen] = React.useState(false);
-
   const handleClickOpen = () => {
     // setOpen(true);
     let obj = {
       name: props.name,
       price: props.price,
       qty: props.qty,
+      id: props.id,
+      imgUrl: props.imgUrl,
     };
     console.log(obj);
+
+    deleteProduct(obj.id)
+      .then((response) => {
+        console.log(response);
+        console.log("success log");
+        toast.success("Product Deleted Successfully");
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   // const handleClose = () => {

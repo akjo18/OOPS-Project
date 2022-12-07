@@ -14,10 +14,12 @@ function AdminAddProduct() {
   const navigate = useNavigate();
 
   const initialValues = {
-    productname: "",
-    productprice: "",
-    productquantity: "",
-    productdescription: "",
+    name: "",
+    productId: "",
+    quantity: "",
+    description: "",
+    price: "",
+    image: "",
   };
 
   const [formValues, setFormValues] = useState(initialValues);
@@ -67,24 +69,48 @@ function AdminAddProduct() {
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
-                          name="productname"
+                          name="productId"
                           id="outlined-basic"
-                          label="Name"
+                          label="Id"
                           variant="outlined"
-                          value={formValues.productname}
+                          value={formValues.productId}
                           onChange={handleChange}
                           required
                         />
                       </Grid>
-
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          name="name"
+                          id="outlined-basic"
+                          label="Name"
+                          variant="outlined"
+                          value={formValues.name}
+                          onChange={handleChange}
+                          required
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          fullWidth
+                          label="Enter Image Url"
+                          type="text"
+                          name="image"
+                          id="fullWidth"
+                          variant="outlined"
+                          value={formValues.image}
+                          onChange={handleChange}
+                          required
+                        />
+                      </Grid>
                       <Grid item xs={12}>
                         <TextField
                           fullWidth
                           label="Price"
-                          name="productprice"
+                          name="price"
                           id="fullWidth"
                           variant="outlined"
-                          value={formValues.productprice}
+                          value={formValues.price}
                           onChange={handleChange}
                           required
                         />
@@ -93,11 +119,11 @@ function AdminAddProduct() {
                       <Grid item xs={6}>
                         <TextField
                           fullWidth
-                          name="productquantity"
+                          name="quantity"
                           id="outlined-basic"
                           label="Quantity"
                           variant="outlined"
-                          value={formValues.productquantity}
+                          value={formValues.quantity}
                           onChange={handleChange}
                           required
                         />
@@ -106,12 +132,12 @@ function AdminAddProduct() {
                       <Grid item xs={6}>
                         <TextField
                           fullWidth
-                          name="productdescription"
+                          name="description"
                           id="outlined-multiline-static"
                           label="Product Description"
                           multiline
                           required
-                          value={formValues.productdescription}
+                          value={formValues.description}
                           onChange={handleChange}
                           rows={4}
                         />
