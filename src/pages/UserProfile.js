@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import UserBar from "../components/UserBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -11,20 +11,6 @@ import { toast } from "react-toastify";
 import { exitApplication } from "../services/user-service";
 
 function UserProfile() {
-  const customerEmail = localStorage.getItem("email");
-  const [user, setUser] = useState([]);
-
-  useEffect(() => {
-    loadUsers();
-  }, []);
-
-  const loadUsers = async () => {
-    const result = await myAxios.get(
-      `http://localhost:8080//viewCustomerDetailsByCustomer/${customerEmail}`
-    );
-    setUser(result.data);
-  };
-
   const navigate = useNavigate();
   const navigateToUserLogin = () => {
     navigate("/");
@@ -83,7 +69,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Name"
-                  value={user.name}
+                  value="Akshat Johar"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -95,7 +81,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Email Id"
-                  value={user.email}
+                  value="akshatjohar@outlook.com"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -110,7 +96,7 @@ function UserProfile() {
                   label="Address"
                   multiline
                   rows={4}
-                  value={user.address}
+                  value="143 BC Lines , Meerut Cantonment , Uttar Pradesh (U.P) , 250001"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -123,7 +109,7 @@ function UserProfile() {
                 <TextField
                   id="filled-read-only-input"
                   label="Phone Number"
-                  value={user.phoneNumber}
+                  value="9896111979"
                   InputProps={{
                     readOnly: true,
                   }}
@@ -137,7 +123,7 @@ function UserProfile() {
                 <input
                   class="form-control bg-light text-dark"
                   type="text"
-                  value={user.walletBalance}
+                  value={walletBalance}
                   readonly
                 />
               </div>
