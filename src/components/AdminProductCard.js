@@ -54,7 +54,7 @@ function AdminProductCard(props) {
           component="img"
           alt="green iguana"
           height="150"
-          image={Image}
+          image={props.imgUrl}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">

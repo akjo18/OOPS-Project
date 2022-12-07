@@ -1,8 +1,9 @@
 import { Box, Grid } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import AdminBar from "../components/AdminBar";
 import AdminProductCard from "../components/AdminProductCard";
 import { myAxios } from "../services/helper";
+import axios from "axios";
 
 // const items = [
 //   {
@@ -37,14 +38,27 @@ import { myAxios } from "../services/helper";
 // ];
 
 function AdminHomePage() {
-  const [items, setItems] = React.useState([]);
+  // const [items, setItems] = React.useState([]);
 
-  React.useEffect(() => {
-    myAxios
-      .get("/getProducts")
-      .then((response) => setItems(response.data))
-      .catch((error) => console.log(error));
+  // React.useEffect(() => {
+  //   myAxios
+  //     .get("/getProducts")
+  //     .then((response) => setItems(response.data))
+  //     .catch((error) => console.log(error));
+  // }, []);
+
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    loadUsers();
   }, []);
+
+  const loadUsers = async () => {
+    const result = await axios.get(
+      "http://localhost:8080/viewAllProductsByManager"
+    );
+    setItems(result.data);
+  };
 
   return (
     <div>

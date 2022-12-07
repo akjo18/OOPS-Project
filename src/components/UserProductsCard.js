@@ -12,6 +12,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import { toast } from "react-toastify";
+import { addToCart } from "../services/user-service";
 
 function UserProductsCard(props) {
   // var sample = [];
@@ -29,6 +31,18 @@ function UserProductsCard(props) {
     };
 
     console.log(obj);
+
+    addToCart(obj)
+      .then((response) => {
+        console.log(response);
+        console.log("success log");
+        toast.success("Product Added Successfully");
+        // navigateToAdminHomePage();
+      })
+      .catch((error) => {
+        console.log(error);
+        console.log("error log");
+      });
   };
 
   // const handleClose = () => {
@@ -48,7 +62,7 @@ function UserProductsCard(props) {
           component="img"
           alt="green iguana"
           height="150"
-          image={Image}
+          image={props.imgUrl}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
