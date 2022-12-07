@@ -10,18 +10,6 @@ import { useNavigate } from "react-router-dom";
 function AdminBar() {
   const navigate = useNavigate();
 
-  const navigateToAdminHomePage = () => {
-    navigate("/admin-home-page");
-  };
-
-  const navigateToAddProducts = () => {
-    navigate("/admin-add-products");
-  };
-
-  const navigateToUserLogin = () => {
-    navigate("/");
-  };
-
   const navigateToModifyUsers = () => {
     navigate("/modify-users");
   };
@@ -34,17 +22,9 @@ function AdminBar() {
             <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
               Best Buy
             </Typography>
-            <Button color="inherit" onClick={navigateToAdminHomePage}>
-              Home
-            </Button>
-            <Button color="inherit" onClick={navigateToAddProducts}>
-              Add Products
-            </Button>
+
             <Button color="inherit" onClick={navigateToModifyUsers}>
-              Modify Users
-            </Button>
-            <Button color="inherit" onClick={navigateToUserLogin}>
-              Logout
+              Back
             </Button>
           </Toolbar>
         </AppBar>

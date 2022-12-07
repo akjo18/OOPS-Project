@@ -1,5 +1,6 @@
 import { myAxios } from "./helper";
 
+// for admin too
 export const signUp = (user) => {
   return myAxios.post("/registration", user).then((response) => response.data);
 };

@@ -18,8 +18,11 @@ import ManagerAddProduct from "../pages/ManagerAddProduct";
 import ManagerLogin from "../pages/ManagerLogin";
 import ManagerHomePage from "../pages/ManagerHomePage";
 import ManagerRegister from "../pages/ManagerRegister";
-
+import ModifyUsers from "../pages/ModifyUsers";
 import ManagerProfile from "../pages/ManagerProfile";
+import AdminAddUser from "../pages/AdminAddUser";
+import AdminAddManager from "../pages/AdminAddManager";
+import UserConfirmation from "../pages/UserConfirmation";
 
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -29,6 +32,7 @@ function AllRoutes() {
     <BrowserRouter>
       <ToastContainer position="bottom-center" />
       <Routes>
+        <Route path="/user-confirmation" element={<UserConfirmation />} />
         <Route path="/user-forgot-password" element={<UserForgotPassword />} />
         <Route path="/user-change-password" element={<UserChangePassword />} />
         <Route path="/payment" element={<Payment />} />
@@ -46,6 +50,9 @@ function AllRoutes() {
         <Route path="/manager-add-products" element={<ManagerAddProduct />} />
         <Route path="/manager-register" element={<ManagerRegister />} />
         <Route path="/manager-profile" element={<ManagerProfile />} />
+        <Route path="/modify-users" element={<ModifyUsers />} />
+        <Route path="/admin-user-register" element={<AdminAddUser />} />
+        <Route path="/admin-manager-register" element={<AdminAddManager />} />
       </Routes>
     </BrowserRouter>
   );

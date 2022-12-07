@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UserBar from "../components/UserBar";
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
@@ -16,6 +16,11 @@ function UserProfile() {
   const navigateToUserChangePassword = () => {
     navigate("/user-change-password");
   };
+  const [walletBalance, setWalletBalance] = useState(1000);
+
+  const handleWalletBalance = () => {
+    setWalletBalance(walletBalance + 500);
+  };
 
   return (
     <div>
@@ -27,7 +32,7 @@ function UserProfile() {
           "& > :not(style)": {
             m: 10,
             width: 800,
-            height: 500,
+            height: 550,
           },
         }}
         alignItems="center"
@@ -92,15 +97,20 @@ function UserProfile() {
             </div>
             <div class="d-flex flex-row">
               <div class="p-2">
+                <label>Current Balance</label>
                 <input
                   class="form-control bg-light text-dark"
                   type="text"
-                  value="Current Balance: 10000"
+                  value={walletBalance}
                   readonly
                 />
               </div>
+            </div>
+            <div class="d-flex flex-row">
               <div class="p-2">
-                <Button variant="contained">TopUp 500</Button>
+                <Button variant="contained" onClick={handleWalletBalance}>
+                  TopUp 500
+                </Button>
               </div>
             </div>
             <div class="d-flex flex-row-reverse">

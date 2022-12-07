@@ -15,6 +15,24 @@ function UserCart(props) {
     <div>
       <UserBar />
       <CartCard />
+      <Box
+        sx={{
+          display: "flex",
+          flexWrap: "wrap",
+          "& > :not(style)": {
+            m: 8,
+            width: 600,
+            height: 550,
+          },
+        }}
+        textAlign="center"
+        alignItems="center"
+        justifyContent="center"
+      >
+        <div className="d-flex justify-content-center ">
+          <h1>Cart</h1>
+        </div>
+      </Box>
     </div>
   );
 }

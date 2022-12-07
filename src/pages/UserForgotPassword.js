@@ -12,13 +12,9 @@ function UserForgotPassword() {
   const navigate = useNavigate();
 
   const initialValues = {
-    // username: "",
-    // userid: "",
-    useremail: "",
-    // userphonenumber: "",
-    // useraddress: "",
-    securityq1: "",
-    securityq2: "",
+    email: "",
+    answer1: "",
+    answer2: "",
     password: "",
   };
 
@@ -70,9 +66,9 @@ function UserForgotPassword() {
                         type="email"
                         placeholder="Email Id"
                         label="Email Id"
-                        name="useremail"
+                        name="email"
                         variant="outlined"
-                        value={formValues.useremail}
+                        value={formValues.email}
                         onChange={handleChange}
                         fullWidth
                         required
@@ -90,9 +86,9 @@ function UserForgotPassword() {
                         type="text"
                         placeholder="What is Your Nick Name ?"
                         label="What is Your Nick Name ?"
-                        name="securityq1"
+                        name="answer1"
                         variant="outlined"
-                        value={formValues.securityq1}
+                        value={formValues.answer1}
                         onChange={handleChange}
                         required
                         fullWidth
@@ -110,9 +106,9 @@ function UserForgotPassword() {
                         type="text"
                         placeholder="What is Your Favorite Movie ?"
                         label="What is Your Favorite Movie ?"
-                        name="securityq2"
+                        name="answer2"
                         variant="outlined"
-                        value={formValues.securityq2}
+                        value={formValues.answer2}
                         onChange={handleChange}
                         required
                         fullWidth

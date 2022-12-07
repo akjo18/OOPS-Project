@@ -1,5 +1,5 @@
-import React from "react";
-import LandingPageBar from "../components/LandingPageBar";
+import React, { useState } from "react";
+
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 // import TextField from "@mui/material/TextField";
@@ -14,16 +14,35 @@ import {
   Typography,
   Button,
 } from "@mui/material";
+import UserBar from "../components/UserBar";
 
 function UserChangePassword() {
   const navigate = useNavigate();
+
+  const initialValues = {
+    password: "",
+  };
+  const [formValues, setFormValues] = useState(initialValues);
+
+  const handleChange = (e) => {
+    // console.log(e.target);
+    const { name, value } = e.target;
+    setFormValues({ ...formValues, [name]: value });
+    // console.log(formValues);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formValues);
+  };
+
   const navigateToUserProfile = () => {
     navigate("/user-profile");
   };
 
   return (
     <div>
-      <LandingPageBar />
+      <UserBar />
       <Box
         sx={{
           display: "flex",
@@ -46,7 +65,7 @@ function UserChangePassword() {
                   Change Password
                 </Typography>
 
-                <form className="mt-3">
+                <form className="mt-3" onSubmit={handleSubmit}>
                   <Grid container spacing={1}>
                     {/* <Grid item xs={12}>
                       <TextField
@@ -63,7 +82,10 @@ function UserChangePassword() {
                         label="New Password"
                         type="password"
                         variant="outlined"
+                        name="password"
                         autoComplete="current-password"
+                        value={formValues.password}
+                        onChange={handleChange}
                         required
                       />
                     </Grid>
@@ -74,7 +96,7 @@ function UserChangePassword() {
                         variant="contained"
                         color="primary"
                         required
-                        onClick={navigateToUserProfile}
+                        // onClick={navigateToUserProfile}
                       >
                         Update Password
                       </Button>

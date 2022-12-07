@@ -49,6 +49,10 @@ function UserLogin() {
         console.log("error log");
         toast.error("Invalid Credentials");
       });
+
+    localStorage.setItem("email", formValues.email);
+    const email = localStorage.getItem("email");
+    console.log(email);
   };
 
   const navigateToUserForgotPassword = () => {
