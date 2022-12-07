@@ -74,11 +74,11 @@ function ManagerHomePage() {
             return (
               <div className="p-2">
                 <ManagerProductCard
-                  name={item.name}
-                  price={item.price}
-                  qty={item.qty}
-                  id={item.id}
-                  imgUrl={item.imgUrl}
+                   name={item.name}
+                   price={item.price}
+                   quantity={item.quantity}
+                   productNumber={item.productNumber}
+                   image={item.image}
                 />
               </div>
             );

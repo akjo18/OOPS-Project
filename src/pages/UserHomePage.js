@@ -72,9 +72,9 @@ function UserHomePage() {
                 <UserProductsCard
                   name={item.name}
                   price={item.price}
-                  qty={item.qty}
-                  id={item.id}
-                  imgUrl={item.imgUrl}
+                  quantity={item.quantity}
+                  productNumber={item.productNumber}
+                  image={item.image}
                 />
               </div>
             );

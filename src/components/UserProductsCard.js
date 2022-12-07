@@ -25,9 +25,9 @@ function UserProductsCard(props) {
     let obj = {
       name: props.name,
       price: props.price,
-      qty: props.qty,
-      id: props.id,
-      imgUrl: props.imgUrl,
+      qty: props.quantity,
+      id: props.productNumber,
+      imgUrl: props.image,
     };
 
     console.log(obj);
@@ -62,14 +62,14 @@ function UserProductsCard(props) {
           component="img"
           alt="green iguana"
           height="150"
-          image={props.imgUrl}
+          image={Image}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div">
             {props.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Price : Rs {props.price} <br /> Qty Available : {props.qty}
+            Price : Rs {props.price} <br /> Qty Available : {props.quantity}
           </Typography>
         </CardContent>
         <CardActions className="d-flex justify-content-end">
